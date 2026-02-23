@@ -6210,7 +6210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6432985689308527347, guid: 03fcde05f6cc41b42a422fffbb5b067b, type: 3}
       propertyPath: m_Name
-      value: Obstacles
+      value: Pillars
       objectReference: {fileID: 0}
     - target: {fileID: 6432985689308527347, guid: 03fcde05f6cc41b42a422fffbb5b067b, type: 3}
       propertyPath: m_IsActive
