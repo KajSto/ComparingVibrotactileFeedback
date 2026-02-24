@@ -65,21 +65,43 @@ Available at: **not yet published**
 
 ## Project Contents (Assets Folder)
 - bHaptics: [The official bHaptics SDK](https://www.bhaptics.com/support/developers/?type=sdk)
-- Comp-Vibro-Feedback: contains all the assets used in actual experiment
+- Comp-Vibro-Feedback: Contains all the assets used in actual experiment
+  * Materials/Black: Material that makes the 'eyes' of the player avatar black
+  * obj-files-vr-lab: Models for the 'base' environment representing the lab in which the experiment took place
+  * Prefabs: Unity game-objects re-used throughout the experiment, such as obstacles for the environments
+  * Scenes: The main .unity scene in which the experiment takes place
+  * Scripts (see sub-section below)
+  * Sound beeps/Beep1: The .mp3 which played at the start of trials (and when target was reached and when the trial ended)
 - Gridbox Prototype Materials: [Materials from the Unity Asset Store](https://assetstore.unity.com/packages/2d/textures-materials/gridbox-prototype-materials-129127?srsltid=AfmBOoqcPSwr5sBgsnd2GTpNhlxB0St-Ofyp_wrep5zygIkb-ATu6SS_)
 - Optitrack: [The official Optitrack Plugin](https://docs.optitrack.com/plugins/optitrack-unity-plugin)
 - Plugins: Standard Unity asset for Android builds
 - StreamingAssets: Folder in which data is saved during experiment
 - TextMesh Pro: [Standard Unity Asset for UI Text](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/index.html)
-- Viveport: Standard Unity asset for VR use
-- XR: Standard Unity asset for VR use
-- XR Interactio Toolkit: Standard Unity asset for VR use
-- XRI: Standard Unity asset for VR use
+- Viveport: [Official asset for controlling Unity VR trough HTV Vive](https://developer.vive.com/resources/viveport/sdk/documentation/english/viveport-sdk/integration-viveport-sdk/unity-developers/) (The experiment ran on the [HTV Vive Focus Vision](https://www.vive.com/eu/product/vive-focus-vision/overview/))
+- XR, XR Interaction Toolkit, XRI: Standard Unity assets for VR use
 
-### Comp-Vibro-Feedback Folder
-
-
-
-
+### Scripts in Assets/Comp-Vibro-Feedback/Scripts
+- ExperimentController.cs:
+- HapticFeedback.cs:
+- OptitrackMoment.cs: 
+- OptitrackPointCollector.cs: 
+- Pathfollowing.cs:
+- PathObject.cs:
+- PlayerMovementPC.cs:
+- PlayerTracker.cs:
+- Sensor.cs:
+- Sensor_Compass.cs:
+- Sensor_Directed.cs:
+- Sensor_Surround.cs:
+- UI_VestActivation.cs:
+- VRHandheldCollider.cs: 
+- VRPlayerBody.cs: 
 
 ### Objects in Main Scene:
+- [bhaptics]: 
+- ExperimentController: 
+- HapticFeedback: 
+- Environment: 
+- Canvas: 
+- XR Interaction Setup: 
+- Client - Optitrack: 
