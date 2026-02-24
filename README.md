@@ -135,3 +135,4 @@ You are free to share and adapt the materials for any purpose, provided that pro
 
 For details, see the [LICENSE](LICENSE) file or: https://creativecommons.org/licenses/by/4.0/
 
+This license applies only to the original materials created for this project. Third‑party assets (e.g., Unity packages, SDKs, plugins, or store assets) remain under their respective licenses and are not covered by the CC BY 4.0 license.
