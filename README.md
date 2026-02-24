@@ -6,8 +6,7 @@ The manuscript is currently under review and will be linked once published.
 
 ## Running the Experiment
 1. Open the project in **Unity 2022.3.20f1** via Unity Hub.  
-2. Load the scene:  
-   `Assets/Comp-Vibro-Feedback/Scenes/Main Scene.unity`
+2. Load the scene: `Assets/Comp-Vibro-Feedback/Scenes/Main Scene.unity`
 3. In the **Experiment Controller** object, set:
    - Participant ID  
    - Session number (Session 1 or Session 2)  
@@ -127,3 +126,12 @@ Path lengths correspond to the routes used in the **Guidance** feedback conditio
 - **Canvas** – Provides a UI preview of vest motor activation for experiment monitoring (not visible in VR).
 - **XR Interaction Setup** – Holds XR camera, controllers, and related XR components.
 - **Client - Optitrack** – Optional component for capturing OptiTrack motion data.
+
+
+## License
+This project is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+You are free to share and adapt the materials for any purpose, provided that proper credit is given.
+
+For details, see the [LICENSE](LICENSE) file or: https://creativecommons.org/licenses/by/4.0/
+
