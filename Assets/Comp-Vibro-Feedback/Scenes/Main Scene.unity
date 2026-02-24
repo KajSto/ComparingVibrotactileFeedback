@@ -3589,7 +3589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3304843718803355244, guid: 5627aa09dc4c0d648843cb1f060978fd, type: 3}
       propertyPath: m_Name
-      value: Client - OptiTrack - modified Variant
+      value: Client - OptiTrack
       objectReference: {fileID: 0}
     - target: {fileID: 3304843718803355244, guid: 5627aa09dc4c0d648843cb1f060978fd, type: 3}
       propertyPath: m_IsActive
