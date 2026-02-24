@@ -70,9 +70,9 @@ Available at: **not yet published**
   * obj-files-vr-lab: Models for the 'base' environment representing the lab in which the experiment took place
   * Prefabs: Unity game-objects re-used throughout the experiment, such as obstacles for the environments
   * Scenes: The main .unity scene in which the experiment takes place
-  * Scripts (see sub-section below)
+  * Scripts: (see sub-section below)
   * Sound beeps/Beep1: The .mp3 which played at the start of trials (and when target was reached and when the trial ended)
-- Gridbox Prototype Materials: [Materials from the Unity Asset Store](https://assetstore.unity.com/packages/2d/textures-materials/gridbox-prototype-materials-129127?srsltid=AfmBOoqcPSwr5sBgsnd2GTpNhlxB0St-Ofyp_wrep5zygIkb-ATu6SS_)
+- Gridbox Prototype Materials: [Materials from the Unity Asset Store](https://assetstore.unity.com/packages/2d/textures-materials/gridbox-prototype-materials-129127?srsltid=AfmBOoqcPSwr5sBgsnd2GTpNhlxB0St-Ofyp_wrep5zygIkb-ATu6SS_) by [SurrealCosmic](https://surrealcosmic.com/) 
 - Optitrack: [The official Optitrack Plugin](https://docs.optitrack.com/plugins/optitrack-unity-plugin)
 - Plugins: Standard Unity asset for Android builds
 - StreamingAssets: Folder in which data is saved during experiment
@@ -81,10 +81,10 @@ Available at: **not yet published**
 - XR, XR Interaction Toolkit, XRI: Standard Unity assets for VR use
 
 ### Scripts in Assets/Comp-Vibro-Feedback/Scripts
-- ExperimentController.cs:
-- HapticFeedback.cs:
-- OptitrackMoment.cs: 
-- OptitrackPointCollector.cs: 
+- ExperimentController.cs: Main script that loops through experimental conditions and enabled/disables environments and feedback accordingly. 
+- HapticFeedback.cs: Main script that controls haptic feedback by checking output of the 'Sensor.cs' scripts and activating the haptic vest accordingly.
+- OptitrackMoment.cs: class used when saving the optitrack data (for each timestamp have x/y/z coordinates of a specified marker)
+- OptitrackPointCollector.cs: Script collects all opti-track markers currently in scene. Saves this as 'OptitrackMoment' classes. This data ended up not being used in analysis, as the headset position sufficed.
 - Pathfollowing.cs:
 - PathObject.cs:
 - PlayerMovementPC.cs:
