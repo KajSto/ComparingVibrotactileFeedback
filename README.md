@@ -8,11 +8,12 @@ Available at: **not yet published**
 - Open the project through the Unity Hub in Unity Editor 2022.3.20f1
 - Open the scene 'Main Scene.unity' in Assets/Comp-Vibro-Feedback/Scenes/
 - You can change the Participant ID and whether this is the first or second experimental session in the Inspector for the 'Experiment Controller' Object (default settings are Participant 1 & Session 1)
+- Make sure the [bHapticsPlayer](https://www.bhaptics.com/) is running in the background and the Tactsuit X40 is connected
 - Press the 'Play' icon at the top of the Unity Editor. The game will automatically run in VR if a headset is detected.
 - For debugging purposes, the experiment can also run on PC with WASD controls to move, and QE to rotate the character. To enable this, click on the 'XR Interaction Setup' object and enable the 'Player Movement PC' script in the Inspector.
 - The experiment will automatically loop through experimental conditions in Latin Square order dependent on the Participant ID set in 'Experiment Controller'
 - After every trial (practice excluded), three save file will be created in the 'Streaming Assets' folder. The first file contains the position of the VR camera over time; The second file contains collision timestamps and coordinates; and the third contains the positions of any detected Optitrack markers over time.
-- (To enable ![Optitrack](https://optitrack.com/), set the object 'Client - Optitrack - modified variant' to active, and set the attached script settings according to the Optitrack guide.)
+- (To enable [Optitrack](https://optitrack.com/), set the object 'Client - Optitrack' to active, and set the attached script settings according to the Optitrack guide.)
 
 
 ## Pictures of Environments
@@ -62,15 +63,22 @@ Available at: **not yet published**
 </p>
 
 
-## Project Contents:
-- folder: Comp-Vibro-Feedback: contains all the assets used in actual experiment
+## Project Contents (Assets Folder)
+- bHaptics: [The official bHaptics SDK](https://www.bhaptics.com/support/developers/?type=sdk)
+- Comp-Vibro-Feedback: contains all the assets used in actual experiment
+- Gridbox Prototype Materials: [Materials from the Unity Asset Store](https://assetstore.unity.com/packages/2d/textures-materials/gridbox-prototype-materials-129127?srsltid=AfmBOoqcPSwr5sBgsnd2GTpNhlxB0St-Ofyp_wrep5zygIkb-ATu6SS_)
+- Optitrack: [The official Optitrack Plugin](https://docs.optitrack.com/plugins/optitrack-unity-plugin)
+- Plugins: Standard Unity asset for Android builds
+- StreamingAssets: Folder in which data is saved during experiment
+- TextMesh Pro: [Standard Unity Asset for UI Text](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/index.html)
+- Viveport: Standard Unity asset for VR use
+- XR: Standard Unity asset for VR use
+- XR Interactio Toolkit: Standard Unity asset for VR use
+- XRI: Standard Unity asset for VR use
+
+### Comp-Vibro-Feedback Folder
 
 
-
-### Other assets from unity asset store:
-- bHaptics
-- Gridbox Materials
-- Optitrack
 
 
 
