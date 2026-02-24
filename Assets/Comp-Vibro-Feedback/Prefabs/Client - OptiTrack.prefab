@@ -150,10 +150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6285310138f6549a6c786da7149ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storeData: 1
+  trackerActive: 0
   markers: []
   debugLines: []
   centerObject: {fileID: 3004646454271486951}
+  btn_save: 0
+  btn_clear: 0
 --- !u!1001 &3364060087942098549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,7 +166,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 248440191355705369, guid: 9a32d482689653847b22155fb3096f79, type: 3}
       propertyPath: m_Name
-      value: Client - OptiTrack - modified Variant
+      value: Client - OptiTrack
       objectReference: {fileID: 0}
     - target: {fileID: 248440191355705369, guid: 9a32d482689653847b22155fb3096f79, type: 3}
       propertyPath: m_Layer

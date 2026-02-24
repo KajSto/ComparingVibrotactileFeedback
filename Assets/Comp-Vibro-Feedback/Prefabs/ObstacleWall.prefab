@@ -220,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2873798019471391611}
   m_Layer: 8
-  m_Name: MazeWall 1x2
+  m_Name: ObstacleWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

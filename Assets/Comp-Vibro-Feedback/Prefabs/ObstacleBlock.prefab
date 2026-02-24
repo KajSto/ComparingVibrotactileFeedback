@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 4186632599128103121}
   - component: {fileID: 9147742254339646357}
   m_Layer: 8
-  m_Name: MazeWallBlock
+  m_Name: ObstacleBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
