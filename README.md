@@ -3,13 +3,12 @@
 Unity project accompanying the paper *Comparing Vibrotactile Feedback Modes for Navigation*.  
 The manuscript is currently under review and will be linked once published.
 
-
 ## Running the Experiment
 1. Open the project in **Unity 2022.3.20f1** via Unity Hub.  
 2. Load the scene: `Assets/Comp-Vibro-Feedback/Scenes/Main Scene.unity`
 3. In the **Experiment Controller** object, set:
    - Participant ID  
-   - Session number (Session 1 or Session 2)  
+   - Second session (checkbox whether this is the second session)  
 4. Ensure the [**bHapticsPlayer**](https://www.bhaptics.com/) is running and that the **Tactsuit X40** is connected.  
 5. Press **Play** in the Unity Editor. If a VR headset is detected, the experiment will automatically run in VR.
 6. The experiment cycles through conditions using a Latin Square based on the Participant ID.  
@@ -101,7 +100,7 @@ Path lengths correspond to the routes used in the **Guidance** feedback conditio
 - **Viveport** – [Official Unity SDK for HTC Vive](https://developer.vive.com/resources/viveport/sdk/documentation/english/viveport-sdk/integration-viveport-sdk/unity-developers/).  
 - **XR, XR Interaction Toolkit, and XRI** – Standard Unity XR components.
 
-### Scripts in Assets/Comp-Vibro-Feedback/Scripts
+### Scripts (Assets/Comp-Vibro-Feedback/Scripts/)
 - **ExperimentController.cs** – Manages condition order, environment activation, and trial flow.
 - **HapticFeedback.cs** – Central vibrotactile feedback controller; interfaces with all sensors.
 - **OptitrackMoment.cs** – Data class storing OptiTrack marker coordinates per timestamp.
