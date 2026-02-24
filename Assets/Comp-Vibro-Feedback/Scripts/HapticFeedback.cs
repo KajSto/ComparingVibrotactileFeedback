@@ -19,9 +19,7 @@ public class HapticFeedback : MonoBehaviour
     [Range(0, 1000)] public int vibrationDuration; //in ms for bHaptics
     [Range(0, 1000)] public int vibrationPause; //time between pulses
     public bool disableVest;
-    public enum SensorFeedbackSetting { sum, max, average }
-    public SensorFeedbackSetting sensorFeedbackSetting;
-    public bool SensorFeedbackIntegrationDisregardZero;
+
     public bool checkWithinObstacle;
     public bool checkWithinObstacleHands;
     public bool visualizeTactorSegments;

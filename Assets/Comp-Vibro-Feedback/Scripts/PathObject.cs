@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class PathObject : MonoBehaviour
 {
-    //attempt to make a class to store a path to use in PathFollowing
-    //define path as series of formulas to compute (x,y) along distance d
+    //class stores a path (series of points (x,y) along distance d) to use in PathFollowing.cs
 
     [Range(0.2f, 2.0f)] public float curveDistance; //distance from waypoint where curve starts
     public bool button_regenPath;

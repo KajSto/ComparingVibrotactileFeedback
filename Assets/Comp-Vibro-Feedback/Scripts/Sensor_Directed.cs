@@ -10,6 +10,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Sensor_Directed : Sensor
 {
+    //feedback computations for the Hand-held Sensor.
+
     [Header("Requirements")]
     public GameObject rightHandObject;
     public GameObject rightHandObjectPC;

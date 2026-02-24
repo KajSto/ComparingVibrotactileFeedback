@@ -69,16 +69,6 @@ public class ExperimentController : MonoBehaviour
 
     public bool buttonManualHapticFeedback;
 
-    [Header("Playback prefabs")]
-    public GameObject playbackHeadObject;
-    public GameObject playbackBodyObject;
-    public GameObject playbackControllerRightObject;
-    public GameObject playbackControllerLeftObject;
-
-    public GameObject playbackCollisionError1;
-    public GameObject playbackCollisionError2;
-    public GameObject playbackCollisionObstacle;
-
 
     // Start is called before the first frame update
     void Start()
@@ -134,21 +124,6 @@ public class ExperimentController : MonoBehaviour
             EnvironmentFullParent.localEulerAngles = new Vector3(0, EnvironmentFullParent.transform.localEulerAngles.y, 0); //only change Y orientation
         }
 
-
-        //debug functions (mainly activated through checkboxes in inspector)
-        if (buttonVisualize)
-        {
-            VisualizeTracker(trackerScript.locationStorage);
-            StartCoroutine(VisualizeCollisions(bodyScript.collisionPosition, bodyScript.collisionObject, trackerScript.locationStorage.Count * 0.05f));
-            buttonVisualize = false;
-        }
-        if (buttonPlayback)
-        {
-            StartCoroutine(PlaybackTracker(trackerScript.locationStorage, trackerScript.rotationStorage, 
-                trackerScript.locationControllerLeftStorage, trackerScript.rotationControllerLeftStorage, 
-                trackerScript.locationControllerRightStorage, trackerScript.rotationControllerRightStorage));
-            buttonPlayback = false;
-        }
 
         if (buttonObstaclesInvisible)
         {
@@ -246,7 +221,7 @@ public class ExperimentController : MonoBehaviour
                         #region copiedCode
                         //press button when participant is ready for trial
                         print("Instruct participant to walk towards start of environment. \n Press continue when ready to start trial.");
-                        Transform startObject = environmentParent.GetChild(2).GetChild(2).GetChild(0);
+                        Transform startObject = environmentParent.GetChild(1).GetChild(2).GetChild(0);
                         float distance = DistanceParticipantToEnd(startObject);
                         buttonContinue = false; //extra check, in case button was accidentally clicked during
                         while (!buttonContinue | distance > 0.3f)
@@ -278,7 +253,7 @@ public class ExperimentController : MonoBehaviour
 
 
                         print("Environment & Feedback activated. Practice Trial Started; \n Waiting for participant to reach target position");
-                        Transform endObject = environmentParent.GetChild(2).GetChild(2).GetChild(1);
+                        Transform endObject = environmentParent.GetChild(1).GetChild(2).GetChild(1);
                         distance = DistanceParticipantToEnd(endObject);
                         while (distance > 0.3f)
                         {
@@ -343,7 +318,7 @@ public class ExperimentController : MonoBehaviour
 
                     //press button when participant is ready for trial
                     print("Instruct participant to walk towards start of environment. \n Press continue when ready to start trial.");
-                    Transform startObject = environmentParent.GetChild(2).GetChild(2).GetChild(0);
+                    Transform startObject = environmentParent.GetChild(1).GetChild(2).GetChild(0);
                     float distance = DistanceParticipantToEnd(startObject);
                     buttonContinue = false; //extra check, in case button was accidentally clicked during
                     while (!buttonContinue | distance > 0.3f)
@@ -379,7 +354,7 @@ public class ExperimentController : MonoBehaviour
                     trialTime = 0;
 
                     print("Environment & Feedback activated. Tracker Activated. Trial Started; \n Waiting for participant to reach target position");
-                    Transform endObject = environmentParent.GetChild(2).GetChild(2).GetChild(1);
+                    Transform endObject = environmentParent.GetChild(1).GetChild(2).GetChild(1);
                     distance = DistanceParticipantToEnd(endObject);
                     while (distance > 0.3f)
                     {
@@ -480,8 +455,8 @@ public class ExperimentController : MonoBehaviour
             environmentParent = hallwayParent;
 
             //special case for hallway: the start/end positions have to be set manually --> base this on the waypoints/path                   
-            Transform startObj = environmentParent.GetChild(2).GetChild(2).GetChild(0);
-            Transform endObj = environmentParent.GetChild(2).GetChild(2).GetChild(1);
+            Transform startObj = environmentParent.GetChild(1).GetChild(2).GetChild(0);
+            Transform endObj = environmentParent.GetChild(1).GetChild(2).GetChild(1);
 
             Transform waypoints = hallwayParent.GetChild(0).GetChild(con_var-1).GetChild(0);
 
@@ -875,84 +850,6 @@ public class ExperimentController : MonoBehaviour
         {
             Debug.DrawLine(tracker[i], tracker[i + 1], Color.red, tracker.Count * 0.05f);
         }
-    }
-
-    //visualize collision with error zones and walls themselves
-    //Note that these are visualized at the location of the player during collision, not the exact point of the collision object
-    IEnumerator VisualizeCollisions(List<Vector3> positions, List<String> types, float time)
-    {
-        List<GameObject> playbackCollisionObjects = new List<GameObject>();
-
-        for (int i = 0; i < positions.Count; i++)
-        {
-            //base object type (only difference is color) on what type of collision it what
-            if (types[i].Equals("error zone 1"))
-            {
-                GameObject collisionObject = Instantiate(playbackCollisionError1, positions[i], Quaternion.identity, transform);
-                playbackCollisionObjects.Add(collisionObject);
-            }
-            else if (types[i].Equals("error zone 2"))
-            {
-                GameObject collisionObject = Instantiate(playbackCollisionError2, positions[i], Quaternion.identity, transform);
-                playbackCollisionObjects.Add(collisionObject);
-            }
-            else if (types[i].Equals("obstacle"))
-            {
-                GameObject collisionObject = Instantiate(playbackCollisionObstacle, positions[i], Quaternion.identity, transform);
-                playbackCollisionObjects.Add(collisionObject);
-            }
-        }
-
-        yield return new WaitForSeconds(time);
-
-        for (int i = 0; i < playbackCollisionObjects.Count; i++)
-        {
-            Destroy(playbackCollisionObjects[i]);            
-        }
-
-        yield return null;
-
-    }
-
-    //visualize a player object moving along the provided track
-    IEnumerator PlaybackTracker(List<Vector3> posTracker, List<Quaternion> oriTracker,
-       List<Vector3> posControlLeftTracker, List<Quaternion> oriControlLeftTracker, List<Vector3> posControlRightTracker, List<Quaternion> oriControlRightTracker)
-    {
-        GameObject replayModel = Instantiate(playbackHeadObject, posTracker[0], Quaternion.identity);
-        GameObject replayModelBody = Instantiate(playbackBodyObject, posTracker[0], Quaternion.identity);
-        replayModelBody.GetComponent<VRPlayerBody>().CameraPosition = replayModel.transform; //tell the body to follow the head
-
-        GameObject replayModelControlLeft = Instantiate(playbackControllerLeftObject, posTracker[0], Quaternion.identity);
-        GameObject replayModelControlRight = Instantiate(playbackControllerRightObject, posTracker[0], Quaternion.identity);
-
-
-        for (int i = 0; i < posTracker.Count; i++)
-        {
-            //currently very basic, just jumping from point to point
-            replayModel.transform.position = posTracker[i];
-            replayModel.transform.rotation = oriTracker[i];
-
-            replayModelControlLeft.transform.position = posControlLeftTracker[i];
-            replayModelControlRight.transform.position = posControlRightTracker[i];
-
-            replayModelControlLeft.transform.rotation = oriControlLeftTracker[i];
-            replayModelControlRight.transform.rotation = oriControlRightTracker[i];
-
-            //The actual model used is in just slightly different coordinates
-            replayModelControlLeft.transform.Rotate(0, 180, 0, Space.Self);
-            replayModelControlRight.transform.Rotate(0, 180, 0, Space.Self);
-            replayModelControlLeft.transform.Translate(0, 0, 0.05f, Space.Self);
-            replayModelControlRight.transform.Translate(0, 0, 0.05f, Space.Self);
-
-            yield return new WaitForSeconds(0.05f);
-        }
-
-        Destroy(replayModelBody);
-        Destroy(replayModel);
-        Destroy(replayModelControlLeft);
-        Destroy(replayModelControlRight);
-
-        yield return null;
     }
 
 
